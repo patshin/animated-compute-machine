@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"missing-chart-field","type":"chart_field_missing","deterministic":true,"node_id":"validate","user_explanation":"The chart contract is missing a required field."}]}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "data-analyst",
+  "case_id": "case-1",
+  "title": "Quarterly revenue pulse",
+  "description": "Trace a fictional analyst from a natural-language question to a validated revenue answer.",
+  "default_input": "How did Northstar's fictional revenue change from Q1 to Q4 2025?",
+  "nodes": [
+    { "id": "normalize", "label": "Normalize", "lane": "graph", "summary": "Turn the question into a typed metric request." },
+    { "id": "route", "label": "Route", "lane": "provider", "summary": "Choose the metric-analysis path through a typed decision." },
+    { "id": "query_metric", "label": "Query metric", "lane": "tool", "summary": "Read the fictional quarterly revenue fixture through the tool registry." },
+    { "id": "calculate", "label": "Calculate", "lane": "graph", "summary": "Compute absolute and percentage change." },
+    { "id": "validate", "label": "Validate", "lane": "policy", "summary": "Check provenance, coverage and arithmetic." },
+    { "id": "answer", "label": "Answer", "lane": "provider", "summary": "Produce a validated answer and safe chart artifact." }
+  ]
+}

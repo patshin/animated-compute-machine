@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "evidence-conflict-synthesis",
+      "module": "M5",
+      "title": "Preserve conflict and supersession",
+      "scenario_id": "research-synthesis",
+      "objective": "Explain why current evidence ranks ahead of a visible superseded and conflicting source.",
+      "input_case": "current exposure policy version",
+      "prediction": {
+        "type": "multi_choice",
+        "prompt": "Which evidence states must remain visible?",
+        "options": ["current official", "secondary conflict", "superseded official"],
+        "expected": ["current official", "secondary conflict", "superseded official"]
+      },
+      "completion_assertions": ["citations_exist", "conflict_warning_visible", "superseded_penalized"]
+    }
+  ]
+}

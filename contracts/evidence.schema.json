@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/evidence/1-0-0",
+  "title": "Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "kind",
+    "source",
+    "content",
+    "retrieval",
+    "authority",
+    "freshness",
+    "classification",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^ev_[A-Za-z0-9_-]+$"
+    },
+    "kind": {
+      "enum": [
+        "document",
+        "record",
+        "metric",
+        "calculation",
+        "remote_artifact"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "title",
+        "source_type"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_type": {
+          "enum": [
+            "document",
+            "database",
+            "tool",
+            "calculation",
+            "remote_agent"
+          ]
+        },
+        "locator": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "effective_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "content": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "excerpt": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "\\S",
+          "maxLength": 8000
+        },
+        "facts": {
+          "type": "object",
+          "minProperties": 1
+        }
+      },
+      "minProperties": 1
+    },
+    "retrieval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "fts5",
+            "tool",
+            "calculation",
+            "remote"
+          ]
+        },
+        "score": {
+          "type": "number"
+        },
+        "score_breakdown": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "authority": {
+      "enum": [
+        "primary",
+        "official",
+        "internal",
+        "secondary",
+        "unknown"
+      ]
+    },
+    "freshness": {
+      "enum": [
+        "current",
+        "aging",
+        "stale",
+        "superseded",
+        "unknown"
+      ]
+    },
+    "contradiction_group": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "classification": {
+      "enum": [
+        "public_fixture",
+        "internal_fixture",
+        "sensitive_fixture"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_id",
+        "created_by"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "node_id": {
+          "type": "string"
+        },
+        "tool_request_id": {
+          "type": "string"
+        },
+        "input_evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_by": {
+          "enum": [
+            "retrieval",
+            "tool",
+            "compute",
+            "remote_agent"
+          ]
+        }
+      }
+    },
+    "citation_label": {
+      "type": "string"
+    }
+  }
+}

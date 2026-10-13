@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/eval-case/1-0-0",
+  "title": "EvalCase",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "scenario_id",
+    "module_id",
+    "input",
+    "provider",
+    "seed",
+    "assertions",
+    "tags",
+    "severity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{2,95}$"
+    },
+    "scenario_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "module_id": {
+      "type": "string",
+      "pattern": "^M(?:[0-9]|1[01])$"
+    },
+    "input": {
+      "type": "object"
+    },
+    "provider": {
+      "enum": [
+        "mock",
+        "replay",
+        "manual_fixture",
+        "codex_cli_optional"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "assertions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "path",
+          "operator"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "route",
+              "node",
+              "tool",
+              "argument",
+              "evidence",
+              "answer",
+              "security",
+              "performance",
+              "schema"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "operator": {
+            "enum": [
+              "equals",
+              "contains",
+              "not_contains",
+              "exists",
+              "not_exists",
+              "lte",
+              "gte",
+              "set_equals",
+              "subset",
+              "matches"
+            ]
+          },
+          "expected": {},
+          "message": {
+            "type": "string"
+          },
+          "critical": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "severity": {
+      "enum": [
+        "P0",
+        "P1",
+        "P2",
+        "P3"
+      ]
+    },
+    "performance_budget_ms": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

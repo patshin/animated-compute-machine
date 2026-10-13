@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "stale_evidence",
+      "type": "stale_evidence",
+      "deterministic": true,
+      "user_explanation": "Reproduce the stale evidence failure."
+    },
+    {
+      "id": "conflicting_evidence",
+      "type": "conflicting_evidence",
+      "deterministic": true,
+      "user_explanation": "Reproduce the conflicting evidence failure."
+    },
+    {
+      "id": "retrieval_injection",
+      "type": "retrieval_injection",
+      "deterministic": true,
+      "user_explanation": "Reproduce the retrieval injection failure."
+    },
+    {
+      "id": "missing_citation",
+      "type": "missing_citation",
+      "deterministic": true,
+      "user_explanation": "Reproduce the missing citation failure."
+    }
+  ]
+}

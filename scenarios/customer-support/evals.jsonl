@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","id":"support-tool-boundary","scenario_id":"customer-support","module_id":"M2","input":{"case_id":"CS-104"},"provider":"mock","seed":11,"assertions":[{"kind":"tool","path":"$.tool.name","operator":"equals","expected":"support.lookup_case","critical":true}],"tags":["tools","support"],"severity":"P1"}

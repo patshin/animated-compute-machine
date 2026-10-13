@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "research-synthesis",
+  "title": "Exposure policy synthesis",
+  "description": "Reconcile a current bulletin, a superseded version, a conflicting analyst note and structured risk context.",
+  "default_query": "What changed in the exposure policy, which version is current, and what limits should the answer state?",
+  "query_chips": [
+    "current exposure policy version",
+    "official secondary conflict",
+    "superseded exposure threshold"
+  ],
+  "planned_tool": {
+    "tool_name": "analytics.query_metric",
+    "tool_version": "1.0.0",
+    "metric": "revenue",
+    "periods": ["2025-Q1", "2025-Q4"],
+    "calculation": "percent_change"
+  },
+  "sources": [
+    {
+      "source_id": "northstar-exposure-bulletin",
+      "title": "Northstar Exposure Bulletin",
+      "path": "documents/official-v2.md",
+      "version": "2.0.0",
+      "published_at": "2026-04-02T08:00:00Z",
+      "authority": "official",
+      "freshness": "current",
+      "contradiction_group": "exposure-threshold"
+    },
+    {
+      "source_id": "northstar-exposure-bulletin",
+      "title": "Northstar Exposure Bulletin",
+      "path": "documents/official-v1.md",
+      "version": "1.0.0",
+      "published_at": "2025-10-14T08:00:00Z",
+      "authority": "official",
+      "freshness": "superseded",
+      "contradiction_group": "exposure-threshold"
+    },
+    {
+      "source_id": "field-analysis-note",
+      "title": "Field Analysis Note",
+      "path": "documents/secondary-note.md",
+      "version": "1.1.0",
+      "published_at": "2026-04-04T12:30:00Z",
+      "authority": "secondary",
+      "freshness": "current",
+      "contradiction_group": "exposure-threshold"
+    },
+    {
+      "source_id": "untrusted-import-note",
+      "title": "Imported Exposure Comment",
+      "path": "documents/untrusted-note.md",
+      "version": "0.1.0",
+      "published_at": "2026-04-05T10:00:00Z",
+      "authority": "unknown",
+      "freshness": "unknown",
+      "contradiction_group": null
+    }
+  ],
+  "records": [
+    {
+      "record_id": "risk-register-104",
+      "title": "Risk register row 104",
+      "version": "2026-04-03",
+      "observed_at": "2026-04-03T16:00:00Z",
+      "authority": "internal",
+      "freshness": "current",
+      "contradiction_group": null,
+      "facts": {
+        "portfolio": "Northstar fictional operations",
+        "current_exposure_percent": 18,
+        "control_owner": "Risk Operations",
+        "next_review": "2026-05-01"
+      }
+    }
+  ]
+}

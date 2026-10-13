@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","id":"metric-schema-contract","scenario_id":"data-analyst","module_id":"M1","input":{"metric":"revenue"},"provider":"mock","seed":12,"assertions":[{"kind":"schema","path":"$.answer.schema_id","operator":"exists","critical":true}],"tags":["schema","analytics"],"severity":"P1"}

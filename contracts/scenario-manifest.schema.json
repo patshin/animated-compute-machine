@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/scenario-manifest/1-0-0",
+  "title": "ScenarioManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "short_description",
+    "domain",
+    "difficulty",
+    "concepts",
+    "data_classification",
+    "default_graph_id",
+    "tool_catalog_ref",
+    "lesson_ref",
+    "eval_ref",
+    "local_only",
+    "license",
+    "maintainer",
+    "compatibility"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,63}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80
+    },
+    "short_description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 240
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 40
+    },
+    "difficulty": {
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ]
+    },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "data_classification": {
+      "enum": [
+        "public_fixture",
+        "internal_fixture",
+        "sensitive_fixture"
+      ]
+    },
+    "default_graph_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tool_catalog_ref": {
+      "$ref": "#/$defs/localRef"
+    },
+    "lesson_ref": {
+      "$ref": "#/$defs/localRef"
+    },
+    "eval_ref": {
+      "$ref": "#/$defs/localRef"
+    },
+    "policy_ref": {
+      "$ref": "#/$defs/localRef"
+    },
+    "fault_ref": {
+      "$ref": "#/$defs/localRef"
+    },
+    "local_only": {
+      "type": "boolean"
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maintainer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "core",
+        "event_schema"
+      ],
+      "properties": {
+        "core": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "required_capabilities": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Namespaced declarative extension data preserved by Scenario Builder round trips.",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_-]*(?:\\.[a-z][a-z0-9_-]*)+$"
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "localRef": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+    }
+  }
+}

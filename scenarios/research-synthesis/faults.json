@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"missing-citation","type":"missing_citation","deterministic":true,"node_id":"validate_citations","user_explanation":"One synthesized claim has no resolvable local citation."}]}

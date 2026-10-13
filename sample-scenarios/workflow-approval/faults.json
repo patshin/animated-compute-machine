@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "role_claim",
+      "type": "role_claim",
+      "deterministic": true,
+      "user_explanation": "Reproduce the role claim failure."
+    },
+    {
+      "id": "policy_version_mismatch",
+      "type": "policy_version_mismatch",
+      "deterministic": true,
+      "user_explanation": "Reproduce the policy version mismatch failure."
+    },
+    {
+      "id": "double_submit",
+      "type": "double_submit",
+      "deterministic": true,
+      "user_explanation": "Reproduce the double submit failure."
+    },
+    {
+      "id": "approval_expired",
+      "type": "approval_expired",
+      "deterministic": true,
+      "user_explanation": "Reproduce the approval expired failure."
+    }
+  ]
+}

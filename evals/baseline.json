@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_id": "mock-golden-70@2026-08-01",
+  "dataset_id": "golden-cases@1.0.0",
+  "dataset_sha256": "0c0ff1958150af74ff8b34cdcf078e88f93ff6ae780b3c4f371620624ff026e5",
+  "scenario_runtime_sha256": "a5fad365774b5dca61eee768f73ba5bd7bb27d400df85a1265c579606b9c8a8c",
+  "retrieval_fixture_sha256": {
+    "scenarios/research-synthesis": "b9b25b4d43b0225a60a892bd8b64094a2f74f40f473562ea180d7694d780b5bc",
+    "scenarios/risk-investigation": "af0a33838ff9e4d4ede65d5a6f774fc11fd864f27f037000de78bf2d7385d360"
+  },
+  "evaluator_contract_version": "agent-trace://e9-evaluator-proof/1.0.0",
+  "evaluation_fingerprint": "48094336c84d444b372a9a54f9d17795b05e7528e30b4bcdc293e5aea655b58b",
+  "provider": "mock",
+  "case_count": 70,
+  "pass_rate": 1.0,
+  "route_accuracy": 1.0,
+  "tool_selection_accuracy": 1.0,
+  "argument_accuracy": 1.0,
+  "citation_coverage": 1.0,
+  "unsafe_action_count": 0,
+  "recorded_at": "2026-08-01T09:00:00+08:00"
+}

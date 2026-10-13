@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "scenario_id": "risk-investigation",
+  "title": "Vendor risk investigation",
+  "description": "Compare an official control assessment, a superseded score and a conflicting external estimate.",
+  "default_query": "What is the current vendor risk score, which sources conflict, and what evidence supports the conclusion?",
+  "query_chips": [
+    "current vendor risk score",
+    "vendor control conflict",
+    "superseded vendor assessment"
+  ],
+  "planned_tool": null,
+  "sources": [
+    {
+      "source_id": "vendor-control-assessment",
+      "title": "Vendor Control Assessment",
+      "path": "documents/official-current.md",
+      "version": "3.0.0",
+      "published_at": "2026-03-18T09:00:00Z",
+      "authority": "primary",
+      "freshness": "current",
+      "contradiction_group": "vendor-risk-score"
+    },
+    {
+      "source_id": "vendor-control-assessment",
+      "title": "Vendor Control Assessment",
+      "path": "documents/official-old.md",
+      "version": "2.0.0",
+      "published_at": "2025-11-10T09:00:00Z",
+      "authority": "official",
+      "freshness": "superseded",
+      "contradiction_group": "vendor-risk-score"
+    },
+    {
+      "source_id": "external-vendor-watch",
+      "title": "External Vendor Watch",
+      "path": "documents/secondary-risk.md",
+      "version": "2026.03",
+      "published_at": "2026-03-20T11:00:00Z",
+      "authority": "secondary",
+      "freshness": "current",
+      "contradiction_group": "vendor-risk-score"
+    }
+  ],
+  "records": [
+    {
+      "record_id": "vendor-register-22",
+      "title": "Vendor register row 22",
+      "version": "2026-03-19",
+      "observed_at": "2026-03-19T14:00:00Z",
+      "authority": "internal",
+      "freshness": "current",
+      "contradiction_group": null,
+      "facts": {
+        "vendor": "Fictional Relay Systems",
+        "open_findings": 4,
+        "risk_score": 72,
+        "review_owner": "Security Assurance"
+      }
+    }
+  ]
+}

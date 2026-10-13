@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/fault-catalog/1-0-0",
+  "title": "FaultCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "faults"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "faults": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "deterministic",
+          "user_explanation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9_-]{2,95}$"
+          },
+          "type": {
+            "enum": [
+              "approval_expired",
+              "approval_required",
+              "bad_arguments",
+              "chart_field_missing",
+              "closed_day",
+              "conflicting_change",
+              "conflicting_evidence",
+              "constraint_conflict",
+              "double_submit",
+              "duplicate_case",
+              "duplicate_rollback",
+              "duplicate_write",
+              "empty_result",
+              "entity_ambiguous",
+              "event_gap",
+              "invalid_metric",
+              "invalid_schema",
+              "log_timeout",
+              "loop_exhausted",
+              "metric_stale",
+              "missing_budget",
+              "missing_citation",
+              "oversized_output",
+              "path_traversal_import",
+              "permission_denied",
+              "policy_conflict",
+              "policy_version_mismatch",
+              "provider_unavailable",
+              "redaction_leak_attempt",
+              "reservation_stale",
+              "retrieval_injection",
+              "role_claim",
+              "stale_approval",
+              "stale_deployment",
+              "stale_evidence",
+              "timeout",
+              "tool_timeout",
+              "unauthorized_rollback",
+              "unit_mismatch",
+              "unknown_tool"
+            ]
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          },
+          "user_explanation": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

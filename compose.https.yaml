@@ -1,0 +1,11 @@
+services:
+  proxy:
+    environment:
+      AGENT_TRACE_ACME_EMAIL: ${AGENT_TRACE_ACME_EMAIL:?Set AGENT_TRACE_ACME_EMAIL}
+      AGENT_TRACE_PUBLIC_HOST: ${AGENT_TRACE_PUBLIC_HOST:?Set AGENT_TRACE_PUBLIC_HOST}
+    ports: !override
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./deploy/proxy/Caddyfile.https:/etc/caddy/Caddyfile:ro

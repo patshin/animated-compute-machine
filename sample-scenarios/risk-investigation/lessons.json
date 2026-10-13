@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "risk-mixed",
+      "module": "M3",
+      "title": "Risk Mixed",
+      "scenario_id": "risk-investigation",
+      "objective": "Use Risk Investigation Workbench to master M3.",
+      "input_case": "risk-investigation-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "risk-evidence",
+      "module": "M5",
+      "title": "Risk Evidence",
+      "scenario_id": "risk-investigation",
+      "objective": "Use Risk Investigation Workbench to master M5.",
+      "input_case": "risk-investigation-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "risk-memory",
+      "module": "M6",
+      "title": "Risk Memory",
+      "scenario_id": "risk-investigation",
+      "objective": "Use Risk Investigation Workbench to master M6.",
+      "input_case": "risk-investigation-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "risk-approval",
+      "module": "M7",
+      "title": "Risk Approval",
+      "scenario_id": "risk-investigation",
+      "objective": "Use Risk Investigation Workbench to master M7.",
+      "input_case": "risk-investigation-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "risk-eval",
+      "module": "M9",
+      "title": "Risk Eval",
+      "scenario_id": "risk-investigation",
+      "objective": "Use Risk Investigation Workbench to master M9.",
+      "input_case": "risk-investigation-case-5",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

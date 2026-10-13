@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "id": "customer-support",
+  "name": "Customer Support Operations",
+  "short_description": "Resolve order questions, retrieve return policy, and prepare a refund with explicit approval.",
+  "domain": "customer_operations",
+  "difficulty": "beginner",
+  "concepts": [
+    "structured_output",
+    "tool_calling",
+    "retrieval",
+    "human_approval",
+    "guardrails"
+  ],
+  "data_classification": "public_fixture",
+  "default_graph_id": "customer-support-main",
+  "tool_catalog_ref": "tools.json",
+  "lesson_ref": "lessons.json",
+  "eval_ref": "evals.jsonl",
+  "policy_ref": "policies.json",
+  "fault_ref": "faults.json",
+  "local_only": true,
+  "license": "CC0-1.0",
+  "maintainer": {
+    "name": "AGENT//TRACE sample maintainers"
+  },
+  "compatibility": {
+    "core": ">=0.1.0 <0.2.0",
+    "event_schema": "1.0.0",
+    "required_capabilities": [
+      "structured_output",
+      "typed_events"
+    ]
+  },
+  "tags": [
+    "customer_operations",
+    "fictional",
+    "offline"
+  ]
+}

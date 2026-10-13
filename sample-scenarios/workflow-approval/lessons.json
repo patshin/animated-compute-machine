@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "workflow-boundary",
+      "module": "M0",
+      "title": "Workflow Boundary",
+      "scenario_id": "workflow-approval",
+      "objective": "Use Policy-bound Approval Workflow to master M0.",
+      "input_case": "workflow-approval-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "workflow-schema",
+      "module": "M1",
+      "title": "Workflow Schema",
+      "scenario_id": "workflow-approval",
+      "objective": "Use Policy-bound Approval Workflow to master M1.",
+      "input_case": "workflow-approval-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "workflow-approval",
+      "module": "M7",
+      "title": "Workflow Approval",
+      "scenario_id": "workflow-approval",
+      "objective": "Use Policy-bound Approval Workflow to master M7.",
+      "input_case": "workflow-approval-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "workflow-audit",
+      "module": "M9",
+      "title": "Workflow Audit",
+      "scenario_id": "workflow-approval",
+      "objective": "Use Policy-bound Approval Workflow to master M9.",
+      "input_case": "workflow-approval-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

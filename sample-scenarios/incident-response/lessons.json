@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "incident-parallel",
+      "module": "M3",
+      "title": "Incident Parallel",
+      "scenario_id": "incident-response",
+      "objective": "Use Incident Response Assistant to master M3.",
+      "input_case": "incident-response-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "incident-checkpoint",
+      "module": "M6",
+      "title": "Incident Checkpoint",
+      "scenario_id": "incident-response",
+      "objective": "Use Incident Response Assistant to master M6.",
+      "input_case": "incident-response-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "incident-approval",
+      "module": "M7",
+      "title": "Incident Approval",
+      "scenario_id": "incident-response",
+      "objective": "Use Incident Response Assistant to master M7.",
+      "input_case": "incident-response-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "incident-security",
+      "module": "M8",
+      "title": "Incident Security",
+      "scenario_id": "incident-response",
+      "objective": "Use Incident Response Assistant to master M8.",
+      "input_case": "incident-response-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "incident-trace",
+      "module": "M9",
+      "title": "Incident Trace",
+      "scenario_id": "incident-response",
+      "objective": "Use Incident Response Assistant to master M9.",
+      "input_case": "incident-response-case-5",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

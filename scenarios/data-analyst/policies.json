@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"analyst":["analytics:read"]},"rules":[{"id":"metric-provenance","when":{"answer_has_metric":true},"decision":"qualify_answer","reason":"Metric answers must name their fictional source and unit."}]}

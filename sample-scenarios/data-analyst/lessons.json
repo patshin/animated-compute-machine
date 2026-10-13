@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "analytics-schema",
+      "module": "M1",
+      "title": "Analytics Schema",
+      "scenario_id": "data-analyst",
+      "objective": "Use Data Analyst Copilot to master M1.",
+      "input_case": "data-analyst-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "analytics-tools",
+      "module": "M2",
+      "title": "Analytics Tools",
+      "scenario_id": "data-analyst",
+      "objective": "Use Data Analyst Copilot to master M2.",
+      "input_case": "data-analyst-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "analytics-parallel",
+      "module": "M3",
+      "title": "Analytics Parallel",
+      "scenario_id": "data-analyst",
+      "objective": "Use Data Analyst Copilot to master M3.",
+      "input_case": "data-analyst-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "analytics-events",
+      "module": "M4",
+      "title": "Analytics Events",
+      "scenario_id": "data-analyst",
+      "objective": "Use Data Analyst Copilot to master M4.",
+      "input_case": "data-analyst-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "analytics-eval",
+      "module": "M9",
+      "title": "Analytics Eval",
+      "scenario_id": "data-analyst",
+      "objective": "Use Data Analyst Copilot to master M9.",
+      "input_case": "data-analyst-case-5",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

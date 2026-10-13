@@ -1,0 +1,11 @@
+packages:
+  - apps/*
+  - packages/*
+
+storeDir: .pnpm-store
+
+onlyBuiltDependencies:
+  - esbuild
+
+minimumReleaseAgeExclude:
+  - '@types/node@26.1.2'

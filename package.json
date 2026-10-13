@@ -1,0 +1,27 @@
+{
+  "name": "agent-trace-lab",
+  "version": "0.1.0-rc.2",
+  "author": "AGENT//TRACE Contributors",
+  "license": "Apache-2.0",
+  "private": true,
+  "packageManager": "pnpm@11.16.0",
+  "engines": {
+    "node": "^24.15.0 || >=26.0.0 <27",
+    "pnpm": "11.16.0"
+  },
+  "scripts": {
+    "build": "pnpm --filter @agent-trace/web build",
+    "dev": "pnpm --filter @agent-trace/web dev",
+    "typecheck": "tsc -b",
+    "contracts:generate": "openapi-typescript packages/contracts/openapi.json -o packages/contracts/src/openapi.d.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.1.2",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "openapi-typescript": "7.13.0",
+    "typescript": "5.9.3",
+    "vite": "8.1.5"
+  }
+}

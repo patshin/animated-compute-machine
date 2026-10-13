@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "invalid_metric",
+      "type": "invalid_metric",
+      "deterministic": true,
+      "user_explanation": "Reproduce the invalid metric failure."
+    },
+    {
+      "id": "unit_mismatch",
+      "type": "unit_mismatch",
+      "deterministic": true,
+      "user_explanation": "Reproduce the unit mismatch failure."
+    },
+    {
+      "id": "tool_timeout",
+      "type": "tool_timeout",
+      "deterministic": true,
+      "user_explanation": "Reproduce the tool timeout failure."
+    },
+    {
+      "id": "chart_field_missing",
+      "type": "chart_field_missing",
+      "deterministic": true,
+      "user_explanation": "Reproduce the chart field missing failure."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","id":"approval-exactly-once","scenario_id":"workflow-approval","module_id":"M7","input":{"change_id":"WF-42"},"provider":"mock","seed":15,"assertions":[{"kind":"tool","path":"$.write_count","operator":"equals","expected":1,"critical":true}],"tags":["approval","idempotency"],"severity":"P1"}

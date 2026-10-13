@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","id":"incident-event-order","scenario_id":"incident-response","module_id":"M4","input":{"incident_id":"IR-7"},"provider":"mock","seed":14,"assertions":[{"kind":"node","path":"$.events.sequence","operator":"exists","critical":true}],"tags":["events","recovery"],"severity":"P1"}

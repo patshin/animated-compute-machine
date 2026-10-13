@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "missing_budget",
+      "type": "missing_budget",
+      "deterministic": true,
+      "user_explanation": "Reproduce the missing budget failure."
+    },
+    {
+      "id": "closed_day",
+      "type": "closed_day",
+      "deterministic": true,
+      "user_explanation": "Reproduce the closed day failure."
+    },
+    {
+      "id": "constraint_conflict",
+      "type": "constraint_conflict",
+      "deterministic": true,
+      "user_explanation": "Reproduce the constraint conflict failure."
+    },
+    {
+      "id": "reservation_stale",
+      "type": "reservation_stale",
+      "deterministic": true,
+      "user_explanation": "Reproduce the reservation stale failure."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "month": "2026-04",
+    "revenue": 420000,
+    "orders": 5100,
+    "sessions": 130000
+  },
+  {
+    "month": "2026-05",
+    "revenue": 455000,
+    "orders": 5420,
+    "sessions": 134000
+  },
+  {
+    "month": "2026-06",
+    "revenue": 438000,
+    "orders": 5280,
+    "sessions": 131500
+  },
+  {
+    "month": "2026-07",
+    "revenue": 492000,
+    "orders": 5900,
+    "sessions": 139000
+  }
+]

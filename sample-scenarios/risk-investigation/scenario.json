@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "id": "risk-investigation",
+  "name": "Risk Investigation Workbench",
+  "short_description": "Combine fictional metrics and policy evidence to assess escalation and prepare a review case.",
+  "domain": "risk_management",
+  "difficulty": "advanced",
+  "concepts": [
+    "mixed_analysis",
+    "metrics",
+    "policy_rag",
+    "evidence",
+    "human_review"
+  ],
+  "data_classification": "public_fixture",
+  "default_graph_id": "risk-investigation-main",
+  "tool_catalog_ref": "tools.json",
+  "lesson_ref": "lessons.json",
+  "eval_ref": "evals.jsonl",
+  "policy_ref": "policies.json",
+  "fault_ref": "faults.json",
+  "local_only": true,
+  "license": "CC0-1.0",
+  "maintainer": {
+    "name": "AGENT//TRACE sample maintainers"
+  },
+  "compatibility": {
+    "core": ">=0.1.0 <0.2.0",
+    "event_schema": "1.0.0",
+    "required_capabilities": [
+      "structured_output",
+      "typed_events"
+    ]
+  },
+  "tags": [
+    "risk_management",
+    "fictional",
+    "offline"
+  ]
+}

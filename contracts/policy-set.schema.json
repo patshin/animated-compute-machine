@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/policy-set/1-0-0",
+  "title": "PolicySet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "roles", "rules"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "roles": {"type": "object", "minProperties": 1, "additionalProperties": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}},
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "when", "decision"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,95}$"},
+          "when": {"type": "object"},
+          "decision": {"enum": ["allow", "deny", "approval_required", "ignore_as_instruction", "redact", "qualify_answer", "stop"]},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@agent-trace/contracts",
+  "version": "0.1.0-rc.2",
+  "author": "AGENT//TRACE Contributors",
+  "license": "Apache-2.0",
+  "private": true,
+  "types": "src/openapi.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/openapi.d.ts"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "id": "workflow-approval",
+  "name": "Policy-bound Approval Workflow",
+  "short_description": "Evaluate a fictional purchase request and compare deterministic rules with Agent recommendations.",
+  "domain": "workflow",
+  "difficulty": "beginner",
+  "concepts": [
+    "workflow_vs_agent",
+    "rules",
+    "structured_decision",
+    "approval",
+    "audit"
+  ],
+  "data_classification": "public_fixture",
+  "default_graph_id": "workflow-approval-main",
+  "tool_catalog_ref": "tools.json",
+  "lesson_ref": "lessons.json",
+  "eval_ref": "evals.jsonl",
+  "policy_ref": "policies.json",
+  "fault_ref": "faults.json",
+  "local_only": true,
+  "license": "CC0-1.0",
+  "maintainer": {
+    "name": "AGENT//TRACE sample maintainers"
+  },
+  "compatibility": {
+    "core": ">=0.1.0 <0.2.0",
+    "event_schema": "1.0.0",
+    "required_capabilities": [
+      "structured_output",
+      "typed_events"
+    ]
+  },
+  "tags": [
+    "workflow",
+    "fictional",
+    "offline"
+  ]
+}

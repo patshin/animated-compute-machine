@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"planner":["travel:read"]},"rules":[{"id":"no-booking","when":{"action":"book"},"decision":"deny","reason":"This Kit can plan but never purchases travel."}]}

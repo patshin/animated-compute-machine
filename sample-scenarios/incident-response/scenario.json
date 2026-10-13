@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0.0",
+  "id": "incident-response",
+  "name": "Incident Response Assistant",
+  "short_description": "Investigate a fictional service degradation and gate a simulated rollback behind approval.",
+  "domain": "operations",
+  "difficulty": "advanced",
+  "concepts": [
+    "parallel_investigation",
+    "evidence_merge",
+    "high_risk_action",
+    "checkpoint",
+    "security"
+  ],
+  "data_classification": "public_fixture",
+  "default_graph_id": "incident-response-main",
+  "tool_catalog_ref": "tools.json",
+  "lesson_ref": "lessons.json",
+  "eval_ref": "evals.jsonl",
+  "policy_ref": "policies.json",
+  "fault_ref": "faults.json",
+  "local_only": true,
+  "license": "CC0-1.0",
+  "maintainer": {
+    "name": "AGENT//TRACE sample maintainers"
+  },
+  "compatibility": {
+    "core": ">=0.1.0 <0.2.0",
+    "event_schema": "1.0.0",
+    "required_capabilities": [
+      "structured_output",
+      "typed_events"
+    ]
+  },
+  "tags": [
+    "operations",
+    "fictional",
+    "offline"
+  ]
+}

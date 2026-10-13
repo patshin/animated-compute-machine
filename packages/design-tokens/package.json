@@ -1,0 +1,15 @@
+{
+  "name": "@agent-trace/design-tokens",
+  "version": "0.1.0-rc.2",
+  "author": "AGENT//TRACE Contributors",
+  "license": "Apache-2.0",
+  "private": true,
+  "files": ["src"],
+  "exports": {
+    "./tokens.css": "./src/tokens.css",
+    "./tokens": {
+      "types": "./src/tokens.ts",
+      "default": "./src/tokens.ts"
+    }
+  }
+}

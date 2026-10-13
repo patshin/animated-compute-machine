@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"analyst":["evidence:read"]},"rules":[{"id":"cite-current-evidence","when":{"answer_has_claim":true},"decision":"qualify_answer","reason":"Every material claim must retain current and conflicting evidence."}]}

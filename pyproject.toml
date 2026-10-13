@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools==82.0.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-trace-api"
+version = "0.1.0rc2"
+description = "Local-first API for AGENT//TRACE Visual Systems Studio"
+readme = "README.md"
+authors = [{ name = "AGENT//TRACE Contributors" }]
+license = "Apache-2.0"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "fastapi==0.139.2",
+  "jsonschema==4.25.1",
+  "langgraph==1.2.10",
+  "langgraph-checkpoint-sqlite==3.1.0",
+  "pydantic==2.13.4",
+  "referencing==0.37.0",
+  "uvicorn==0.41.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "apps/api"}
+
+[tool.setuptools.packages.find]
+where = ["apps/api"]

@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"operator":["workflow:write"]},"rules":[{"id":"workflow-write-approval","when":{"tool_risk":"write"},"decision":"approval_required","reason":"Every fictional write requires explicit fresh approval."}]}

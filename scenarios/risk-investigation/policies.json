@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"investigator":["risk:read"]},"rules":[{"id":"preserve-risk-conflict","when":{"conflicting_evidence":true},"decision":"qualify_answer","reason":"Risk conclusions must expose conflicting evidence and source age."}]}

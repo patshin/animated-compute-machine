@@ -1,0 +1,52 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pip-cache/
+.hypothesis/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+.pnpm-store/
+dist/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Browser tests
+playwright-report/
+test-results/
+blob-report/
+artifacts/**/traces/*.zip
+
+# Local runtime data
+.local/
+runs/
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+backups/
+
+# Generated temporary files
+*.tmp
+*.log

@@ -1,0 +1,10 @@
+{
+  "citygrid-study-v2.md": {
+    "authority": "official",
+    "freshness": "current"
+  },
+  "vendor-memo.md": {
+    "authority": "secondary",
+    "freshness": "current"
+  }
+}

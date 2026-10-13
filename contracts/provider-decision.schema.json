@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/provider-decision/1-0-0",
+  "title": "ProviderDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "decision_id", "kind", "payload", "confidence", "provider_metadata"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "decision_id": {"type": "string", "pattern": "^dec_[A-Za-z0-9_-]+$"},
+    "kind": {"enum": ["route", "tool_request", "structured_answer", "repair", "clarification", "evaluation"]},
+    "payload": {"type": "object"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "provider_metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "mode", "simulated"],
+      "properties": {
+        "provider": {"enum": ["mock", "replay", "manual", "codex_cli", "hosted_optional"]},
+        "mode": {"type": "string"},
+        "simulated": {"type": "boolean"},
+        "model": {"type": ["string", "null"]},
+        "latency_ms": {"type": ["integer", "null"], "minimum": 0},
+        "usage": {"type": ["object", "null"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "log_timeout",
+      "type": "log_timeout",
+      "deterministic": true,
+      "user_explanation": "Reproduce the log timeout failure."
+    },
+    {
+      "id": "conflicting_change",
+      "type": "conflicting_change",
+      "deterministic": true,
+      "user_explanation": "Reproduce the conflicting change failure."
+    },
+    {
+      "id": "stale_deployment",
+      "type": "stale_deployment",
+      "deterministic": true,
+      "user_explanation": "Reproduce the stale deployment failure."
+    },
+    {
+      "id": "unauthorized_rollback",
+      "type": "unauthorized_rollback",
+      "deterministic": true,
+      "user_explanation": "Reproduce the unauthorized rollback failure."
+    },
+    {
+      "id": "duplicate_rollback",
+      "type": "duplicate_rollback",
+      "deterministic": true,
+      "user_explanation": "Reproduce the duplicate rollback failure."
+    }
+  ]
+}

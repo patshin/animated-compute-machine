@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0.0",
+  "tools": [
+    {
+      "schema_version": "1.0.0",
+      "name": "orders.get_status",
+      "version": "1.0.0",
+      "description": "Read one fictional order status by stable order id.",
+      "risk": "read",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "orders:read"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a read capability in the customer-support learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "returns.search_policy",
+      "version": "1.0.0",
+      "description": "Search local return-policy evidence for a product and date.",
+      "risk": "read",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "policies:read"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a read capability in the customer-support learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "refunds.prepare",
+      "version": "1.0.0",
+      "description": "Prepare a refund proposal without changing any record.",
+      "risk": "propose",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "approval_id": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "refunds:propose"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a propose capability in the customer-support learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "refunds.execute",
+      "version": "1.0.0",
+      "description": "Execute a fictional refund after a valid approval.",
+      "risk": "write",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "approval_id": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "refunds:write"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 1,
+        "retryable_errors": [],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "request_key",
+        "key_fields": [
+          "target_id",
+          "approval_id"
+        ]
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": false,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a write capability in the customer-support learning scenario."
+    }
+  ]
+}

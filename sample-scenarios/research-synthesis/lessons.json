@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "research-retrieval",
+      "module": "M5",
+      "title": "Research Retrieval",
+      "scenario_id": "research-synthesis",
+      "objective": "Use Research Synthesis Desk to master M5.",
+      "input_case": "research-synthesis-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "research-conflict",
+      "module": "M5",
+      "title": "Research Conflict",
+      "scenario_id": "research-synthesis",
+      "objective": "Use Research Synthesis Desk to master M5.",
+      "input_case": "research-synthesis-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "research-injection",
+      "module": "M8",
+      "title": "Research Injection",
+      "scenario_id": "research-synthesis",
+      "objective": "Use Research Synthesis Desk to master M8.",
+      "input_case": "research-synthesis-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "research-eval",
+      "module": "M9",
+      "title": "Research Eval",
+      "scenario_id": "research-synthesis",
+      "objective": "Use Research Synthesis Desk to master M9.",
+      "input_case": "research-synthesis-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

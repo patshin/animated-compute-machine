@@ -1,0 +1,248 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/run-state/1-0-0",
+  "title": "RunState",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "thread_id",
+    "scenario",
+    "provider",
+    "mode",
+    "seed",
+    "user_input",
+    "entities",
+    "tool_requests",
+    "tool_results",
+    "evidence",
+    "calculations",
+    "policy_decisions",
+    "approvals",
+    "errors",
+    "warnings",
+    "completed_node_ids",
+    "skipped_node_ids",
+    "retry_counters",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "thread_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "forked_from_checkpoint_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scenario": {
+      "type": "object",
+      "required": [
+        "id",
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "lesson": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "provider": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "mock",
+            "replay",
+            "manual",
+            "codex_cli",
+            "future"
+          ]
+        }
+      }
+    },
+    "mode": {
+      "enum": [
+        "guided",
+        "sandbox",
+        "expert",
+        "evaluation"
+      ]
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "user_input": {
+      "type": "object"
+    },
+    "normalized_input": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "intent": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "plan": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tool_requests": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tool_results": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence.schema.json"
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "policy_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "pending_interrupt": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "answer": {
+      "oneOf": [
+        {
+          "$ref": "answer-payload.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "current_node_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "completed_node_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "skipped_node_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "retry_counters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"unknown-support-tool","type":"unknown_tool","deterministic":true,"node_id":"lookup","user_explanation":"The proposed support tool is not registered."}]}

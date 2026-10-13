@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"agent":["support:read"]},"rules":[{"id":"support-read-only","when":{"tool_risk":"read"},"decision":"allow","reason":"The lesson permits only local fixture reads."}]}

@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"missing-travel-budget","type":"missing_budget","deterministic":true,"node_id":"route","user_explanation":"The itinerary cannot route until a budget is supplied."}]}

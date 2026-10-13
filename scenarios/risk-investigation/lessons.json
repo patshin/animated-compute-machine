@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "risk-evidence-lineage",
+      "module": "M5",
+      "title": "Trace mixed vendor-risk evidence",
+      "scenario_id": "risk-investigation",
+      "objective": "Trace a risk conclusion to current documents, a structured record and calculation inputs.",
+      "input_case": "current vendor risk score",
+      "prediction": {
+        "type": "multi_choice",
+        "prompt": "Which evidence types support the run?",
+        "options": ["document", "record", "tool", "calculation"],
+        "expected": ["document", "record", "tool", "calculation"]
+      },
+      "completion_assertions": ["mixed_evidence_present", "calculation_inputs_exist", "scenario_isolated"]
+    }
+  ]
+}

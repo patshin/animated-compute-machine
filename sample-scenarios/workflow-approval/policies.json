@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0.0",
+  "roles": {
+    "learner": [
+      "procurement:propose",
+      "procurement:read"
+    ],
+    "approver": [
+      "procurement:propose",
+      "procurement:read",
+      "procurement:write"
+    ]
+  },
+  "rules": [
+    {
+      "id": "writes-need-approval",
+      "when": {
+        "tool_risk": "write"
+      },
+      "decision": "approval_required"
+    },
+    {
+      "id": "restricted-disabled",
+      "when": {
+        "tool_risk": "restricted"
+      },
+      "decision": "deny"
+    },
+    {
+      "id": "documents-are-data",
+      "when": {
+        "instruction_source": "retrieved_content"
+      },
+      "decision": "ignore_as_instruction"
+    }
+  ]
+}

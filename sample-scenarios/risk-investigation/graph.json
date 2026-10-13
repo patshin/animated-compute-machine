@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0.0",
+  "id": "risk-investigation-main",
+  "template": "parallel_evidence_merge",
+  "nodes": [
+    {
+      "id": "input",
+      "kind": "input",
+      "label": "INPUT",
+      "reads": [],
+      "writes": [
+        "user_input"
+      ]
+    },
+    {
+      "id": "normalize",
+      "kind": "normalize",
+      "label": "NORMALIZE",
+      "reads": [
+        "user_input"
+      ],
+      "writes": [
+        "normalized_input"
+      ]
+    },
+    {
+      "id": "route",
+      "kind": "model_decision",
+      "label": "ROUTE",
+      "reads": [
+        "normalized_input"
+      ],
+      "writes": [
+        "intent"
+      ]
+    },
+    {
+      "id": "act",
+      "kind": "subgraph",
+      "label": "SCENARIO WORK",
+      "reads": [
+        "intent"
+      ],
+      "writes": [
+        "tool_requests",
+        "tool_results",
+        "evidence",
+        "calculations"
+      ]
+    },
+    {
+      "id": "validate",
+      "kind": "validation",
+      "label": "VALIDATE",
+      "reads": [
+        "tool_results",
+        "evidence"
+      ],
+      "writes": [
+        "warnings",
+        "errors"
+      ]
+    },
+    {
+      "id": "answer",
+      "kind": "output",
+      "label": "ANSWER",
+      "reads": [
+        "evidence",
+        "calculations",
+        "warnings"
+      ],
+      "writes": [
+        "answer"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "input",
+      "to": "normalize"
+    },
+    {
+      "from": "normalize",
+      "to": "route"
+    },
+    {
+      "from": "route",
+      "to": "act",
+      "condition": "intent != clarify"
+    },
+    {
+      "from": "route",
+      "to": "answer",
+      "condition": "intent == clarify"
+    },
+    {
+      "from": "act",
+      "to": "validate"
+    },
+    {
+      "from": "validate",
+      "to": "answer"
+    }
+  ]
+}

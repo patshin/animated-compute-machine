@@ -1,0 +1,45 @@
+[
+  {
+    "id": "place-circuit",
+    "name": "Circuit Museum",
+    "cost": 22,
+    "duration_min": 120,
+    "open_days": [
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "step_free": true
+  },
+  {
+    "id": "place-packet",
+    "name": "Packet Garden",
+    "cost": 0,
+    "duration_min": 75,
+    "open_days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "step_free": true
+  },
+  {
+    "id": "place-kernel",
+    "name": "Kernel Night Market",
+    "cost": 18,
+    "duration_min": 90,
+    "open_days": [
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "step_free": false
+  }
+]

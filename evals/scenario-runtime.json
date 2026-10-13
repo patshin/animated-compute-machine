@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "profiles": [
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "customer-support",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "support-resolution",
+      "tool_name": "orders.get_status",
+      "tool_arguments": {"order_id": "ORD-1042"},
+      "actor_role": "learner",
+      "retrieval_scenario_id": null,
+      "scenario_kit_ref": null
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "data-analyst",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "metric-analysis",
+      "tool_name": "analytics.query_metric",
+      "tool_arguments": {"metric": "revenue", "periods": ["2025-Q1", "2025-Q4"]},
+      "actor_role": "system",
+      "retrieval_scenario_id": null,
+      "scenario_kit_ref": null
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "incident-response",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "incident-triage",
+      "tool_name": "analytics.query_metric",
+      "tool_arguments": {"metric": "tickets", "periods": ["2025-Q3", "2025-Q4"]},
+      "actor_role": "reviewer",
+      "retrieval_scenario_id": null,
+      "scenario_kit_ref": null
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "research-synthesis",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "research-synthesis",
+      "tool_name": "analytics.query_metric",
+      "tool_arguments": {"metric": "revenue", "periods": ["2025-Q2", "2025-Q4"]},
+      "actor_role": "system",
+      "retrieval_scenario_id": "research-synthesis",
+      "scenario_kit_ref": "scenarios/research-synthesis"
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "risk-investigation",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "risk-investigation",
+      "tool_name": "analytics.query_metric",
+      "tool_arguments": {"metric": "tickets", "periods": ["2025-Q1", "2025-Q4"]},
+      "actor_role": "system",
+      "retrieval_scenario_id": "risk-investigation",
+      "scenario_kit_ref": "scenarios/risk-investigation"
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "travel-planner",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "itinerary-planning",
+      "tool_name": "analytics.query_metric",
+      "tool_arguments": {"metric": "revenue", "periods": ["2025-Q2", "2025-Q3"]},
+      "actor_role": "system",
+      "retrieval_scenario_id": null,
+      "scenario_kit_ref": null
+    },
+    {
+      "schema_version": "1.0.0",
+      "scenario_id": "workflow-approval",
+      "graph_profile": "durable-parallel-evidence@1.0.0",
+      "route_intent": "approval-orchestration",
+      "tool_name": "orders.get_status",
+      "tool_arguments": {"order_id": "ORD-1042"},
+      "actor_role": "system",
+      "retrieval_scenario_id": null,
+      "scenario_kit_ref": null
+    }
+  ]
+}

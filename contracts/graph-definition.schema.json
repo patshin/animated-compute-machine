@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-trace.local/schemas/graph-definition/1-0-0",
+  "title": "GraphDefinition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "template",
+    "nodes",
+    "edges"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{2,95}$"
+    },
+    "template": {
+      "enum": [
+        "custom",
+        "evaluator_optimizer",
+        "incident_response",
+        "orchestrator_worker",
+        "parallel_evidence_merge",
+        "plan_execute_validate",
+        "read_only_research",
+        "retrieve_then_answer",
+        "router",
+        "tool_loop",
+        "write_with_approval"
+      ]
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "label",
+          "reads",
+          "writes"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{1,63}$"
+          },
+          "kind": {
+            "enum": [
+              "input",
+              "normalize",
+              "model_decision",
+              "tool",
+              "retrieval",
+              "compute",
+              "validation",
+              "guardrail",
+              "human_interrupt",
+              "subgraph",
+              "output",
+              "eval"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "reads": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "writes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "timeout_ms": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 120000
+          },
+          "max_attempts": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10
+          },
+          "owner": {
+            "enum": [
+              "model",
+              "code",
+              "tool",
+              "human"
+            ]
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to"
+        ],
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "condition": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "entry_node": {
+      "type": "string"
+    },
+    "terminal_nodes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

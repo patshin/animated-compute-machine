@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0.0",
+  "tools": [
+    {
+      "schema_version": "1.0.0",
+      "name": "procurement.get_request",
+      "version": "1.0.0",
+      "description": "Read one fictional purchase request.",
+      "risk": "read",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "procurement:read"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a read capability in the workflow-approval learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "procurement.evaluate_policy",
+      "version": "1.0.0",
+      "description": "Evaluate deterministic threshold and required-review rules.",
+      "risk": "compute",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "approval_id": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "procurement:read"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a compute capability in the workflow-approval learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "procurement.prepare_decision",
+      "version": "1.0.0",
+      "description": "Prepare an approval recommendation without changing the request.",
+      "risk": "propose",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "approval_id": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "procurement:propose"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 2,
+        "retryable_errors": [
+          "TIMEOUT"
+        ],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "not_applicable",
+        "key_fields": []
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": true,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a propose capability in the workflow-approval learning scenario."
+    },
+    {
+      "schema_version": "1.0.0",
+      "name": "procurement.execute_decision",
+      "version": "1.0.0",
+      "description": "Simulate an approval decision after an authorized human action.",
+      "risk": "write",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "approval_id": {
+            "type": "string"
+          }
+        },
+        "minProperties": 1
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "permissions": [
+        "procurement:write"
+      ],
+      "timeout_ms": 3000,
+      "retry": {
+        "max_attempts": 1,
+        "retryable_errors": [],
+        "backoff_ms": 100
+      },
+      "idempotency": {
+        "mode": "request_key",
+        "key_fields": [
+          "target_id",
+          "approval_id"
+        ]
+      },
+      "redact": [
+        "$.customer_email",
+        "$.token"
+      ],
+      "errors": [
+        {
+          "code": "PERMISSION_DENIED",
+          "retryable": false,
+          "user_message": "The current actor is not allowed to use this tool."
+        },
+        {
+          "code": "TIMEOUT",
+          "retryable": false,
+          "user_message": "The fictional tool did not finish within its time budget."
+        }
+      ],
+      "explanation": "This tool is a write capability in the workflow-approval learning scenario."
+    }
+  ]
+}

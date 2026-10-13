@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "id": "research-evidence-graph",
+  "template": "retrieve_then_answer",
+  "nodes": [
+    {"id": "rewrite_query", "kind": "normalize", "label": "Rewrite query", "reads": ["input"], "writes": ["query"], "owner": "code"},
+    {"id": "retrieve", "kind": "retrieval", "label": "Retrieve local chunks", "reads": ["query", "filters"], "writes": ["chunks"], "owner": "code"},
+    {"id": "normalize_record", "kind": "normalize", "label": "Normalize evidence", "reads": ["chunks", "records"], "writes": ["evidence"], "owner": "code"},
+    {"id": "tool_context", "kind": "tool", "label": "Load planned context", "reads": ["scenario_plan"], "writes": ["tool_evidence"], "owner": "tool"},
+    {"id": "calculate", "kind": "compute", "label": "Calculate derived evidence", "reads": ["tool_evidence"], "writes": ["calculation_evidence"], "owner": "code"},
+    {"id": "validate_citations", "kind": "validation", "label": "Validate citations", "reads": ["evidence", "claims"], "writes": ["citation_validation"], "owner": "code"}
+  ],
+  "edges": [
+    {"from": "rewrite_query", "to": "retrieve"},
+    {"from": "retrieve", "to": "normalize_record"},
+    {"from": "normalize_record", "to": "tool_context", "condition": "chunks are present"},
+    {"from": "tool_context", "to": "calculate"},
+    {"from": "calculate", "to": "validate_citations"}
+  ],
+  "entry_node": "rewrite_query",
+  "terminal_nodes": ["validate_citations"]
+}

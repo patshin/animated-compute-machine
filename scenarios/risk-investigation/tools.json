@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0.0",
+  "tools": [
+    {
+      "schema_version": "1.0.0",
+      "name": "analytics.query_metric",
+      "version": "1.0.0",
+      "description": "Read a deterministic fictional metric series for bounded periods.",
+      "risk": "read",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "periods"],
+        "properties": {
+          "metric": {"enum": ["revenue", "tickets"]},
+          "periods": {"type": "array", "minItems": 1, "maxItems": 4, "uniqueItems": true, "items": {"enum": ["2025-Q1", "2025-Q2", "2025-Q3", "2025-Q4"]}}
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["metric", "rows", "source"],
+        "properties": {
+          "metric": {"enum": ["revenue", "tickets"]},
+          "rows": {"type": "array", "minItems": 1, "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["period", "value", "unit"], "properties": {"period": {"type": "string"}, "value": {"type": "number"}, "unit": {"enum": ["USD millions", "tickets"]}}}},
+          "source": {"const": "fictional://analytics/metrics"}
+        }
+      },
+      "permissions": ["analytics:read"],
+      "timeout_ms": 80,
+      "retry": {"max_attempts": 2, "retryable_errors": ["TIMEOUT"], "backoff_ms": 0},
+      "idempotency": {"mode": "not_applicable"},
+      "redact": [],
+      "errors": [],
+      "explanation": "The tool is available to the Kit registry but runs only when retrieval.json contains a typed planned_tool entry."
+    }
+  ]
+}

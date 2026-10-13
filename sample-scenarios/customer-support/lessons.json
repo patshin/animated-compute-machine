@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0.0",
+  "lessons": [
+    {
+      "id": "support-route",
+      "module": "M1",
+      "title": "Support Route",
+      "scenario_id": "customer-support",
+      "objective": "Use Customer Support Operations to master M1.",
+      "input_case": "customer-support-case-1",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "support-tool-loop",
+      "module": "M2",
+      "title": "Support Tool Loop",
+      "scenario_id": "customer-support",
+      "objective": "Use Customer Support Operations to master M2.",
+      "input_case": "customer-support-case-2",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "support-evidence",
+      "module": "M5",
+      "title": "Support Evidence",
+      "scenario_id": "customer-support",
+      "objective": "Use Customer Support Operations to master M5.",
+      "input_case": "customer-support-case-3",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "support-approval",
+      "module": "M7",
+      "title": "Support Approval",
+      "scenario_id": "customer-support",
+      "objective": "Use Customer Support Operations to master M7.",
+      "input_case": "customer-support-case-4",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    },
+    {
+      "id": "support-injection",
+      "module": "M8",
+      "title": "Support Injection",
+      "scenario_id": "customer-support",
+      "objective": "Use Customer Support Operations to master M8.",
+      "input_case": "customer-support-case-5",
+      "prediction": {
+        "type": "single_choice",
+        "prompt": "Which system boundary should act next?",
+        "options": [
+          "model",
+          "runtime",
+          "tool",
+          "human"
+        ]
+      },
+      "completion_assertions": [
+        "run_completed",
+        "trace_inspected",
+        "explain_back_submitted"
+      ]
+    }
+  ]
+}

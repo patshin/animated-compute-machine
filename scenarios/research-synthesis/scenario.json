@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "id": "research-synthesis",
+  "name": "Exposure policy synthesis",
+  "short_description": "Reconcile current, superseded and conflicting evidence without hiding uncertainty.",
+  "domain": "research",
+  "difficulty": "intermediate",
+  "concepts": ["retrieval", "evidence", "citations", "memory"],
+  "data_classification": "public_fixture",
+  "default_graph_id": "research-evidence-graph",
+  "tool_catalog_ref": "tools.json",
+  "lesson_ref": "lessons.json",
+  "eval_ref": "evals.jsonl",
+  "policy_ref": "policies.json",
+  "fault_ref": "faults.json",
+  "local_only": true,
+  "license": "CC0-1.0",
+  "maintainer": {"name": "AGENT//TRACE"},
+  "compatibility": {
+    "core": ">=0.1.0 <0.2.0",
+    "event_schema": "1.0.0",
+    "required_capabilities": ["sqlite_fts5", "typed_evidence", "deterministic_mock"]
+  },
+  "tags": ["offline", "fts5", "conflict"]
+}

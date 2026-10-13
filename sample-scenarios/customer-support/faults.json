@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "unknown_tool",
+      "type": "unknown_tool",
+      "deterministic": true,
+      "user_explanation": "Reproduce the unknown tool failure."
+    },
+    {
+      "id": "permission_denied",
+      "type": "permission_denied",
+      "deterministic": true,
+      "user_explanation": "Reproduce the permission denied failure."
+    },
+    {
+      "id": "duplicate_write",
+      "type": "duplicate_write",
+      "deterministic": true,
+      "user_explanation": "Reproduce the duplicate write failure."
+    },
+    {
+      "id": "retrieval_injection",
+      "type": "retrieval_injection",
+      "deterministic": true,
+      "user_explanation": "Reproduce the retrieval injection failure."
+    },
+    {
+      "id": "stale_approval",
+      "type": "stale_approval",
+      "deterministic": true,
+      "user_explanation": "Reproduce the stale approval failure."
+    }
+  ]
+}

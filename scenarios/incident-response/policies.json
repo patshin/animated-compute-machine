@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","roles":{"responder":["incident:read"]},"rules":[{"id":"containment-proposal-only","when":{"action":"contain"},"decision":"approval_required","reason":"Containment remains a proposal until a human approves it."}]}

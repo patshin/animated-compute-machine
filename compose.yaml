@@ -1,0 +1,100 @@
+name: agent-trace-public-preview
+
+x-service-defaults: &service-defaults
+  init: true
+  restart: unless-stopped
+  read_only: true
+  security_opt:
+    - no-new-privileges:true
+  cap_drop:
+    - ALL
+  logging:
+    driver: json-file
+    options:
+      max-size: 10m
+      max-file: "3"
+
+services:
+  api:
+    <<: *service-defaults
+    image: agent-trace-api:${AGENT_TRACE_IMAGE_TAG:-0.1.0-rc.2}
+    build:
+      context: .
+      dockerfile: deploy/docker/api.Dockerfile
+    environment:
+      AGENT_TRACE_DEPLOYMENT_PROFILE: public-preview
+      AGENT_TRACE_CORS_ORIGINS: ${AGENT_TRACE_PUBLIC_ORIGIN:-http://127.0.0.1:47800}
+      AGENT_TRACE_MAX_REQUEST_BODY_BYTES: "524288"
+      AGENT_TRACE_GENERAL_WRITE_LIMIT_PER_MINUTE: "90"
+      AGENT_TRACE_EXPENSIVE_WRITE_LIMIT_PER_MINUTE: "8"
+      AGENT_TRACE_SSE_MAX_LIFETIME_SECONDS: "300"
+    expose:
+      - "8000"
+    volumes:
+      - agent_trace_data:/app/.local
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777
+    networks:
+      - backend
+    cpus: 1.5
+    mem_limit: 1g
+    pids_limit: 160
+    stop_grace_period: 40s
+    deploy:
+      replicas: 1
+
+  web:
+    <<: *service-defaults
+    image: agent-trace-web:${AGENT_TRACE_IMAGE_TAG:-0.1.0-rc.2}
+    build:
+      context: .
+      dockerfile: deploy/docker/web.Dockerfile
+    expose:
+      - "8080"
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=32m,mode=1777
+    networks:
+      - frontend
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 64
+    stop_grace_period: 15s
+
+  proxy:
+    <<: *service-defaults
+    image: agent-trace-proxy:${AGENT_TRACE_IMAGE_TAG:-0.1.0-rc.2}
+    build:
+      context: .
+      dockerfile: deploy/docker/proxy.Dockerfile
+    depends_on:
+      api:
+        condition: service_healthy
+      web:
+        condition: service_healthy
+    ports:
+      - 127.0.0.1:${AGENT_TRACE_PUBLIC_PORT:-47800}:8080
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=32m,mode=1777
+    networks:
+      - frontend
+      - backend
+      - proxy_egress
+    cpus: 0.5
+    mem_limit: 128m
+    pids_limit: 96
+    stop_grace_period: 20s
+
+volumes:
+  agent_trace_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  frontend:
+    internal: true
+  backend:
+    internal: true
+  proxy_egress:

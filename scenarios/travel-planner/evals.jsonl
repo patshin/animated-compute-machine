@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","id":"travel-constraint-route","scenario_id":"travel-planner","module_id":"M3","input":{"budget":500},"provider":"mock","seed":13,"assertions":[{"kind":"route","path":"$.route","operator":"equals","expected":"validate","critical":true}],"tags":["graph","routing"],"severity":"P1"}

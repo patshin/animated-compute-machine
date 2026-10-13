@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"stale-vendor-evidence","type":"stale_evidence","deterministic":true,"node_id":"retrieve","user_explanation":"Only a superseded vendor assessment is available."}]}

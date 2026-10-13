@@ -1,0 +1,1 @@
+{"schema_version":"1.0.0","faults":[{"id":"incident-event-gap","type":"event_gap","deterministic":true,"node_id":"observe","parameters":{"missing_sequence":3},"user_explanation":"A canonical event sequence is missing and recovery must pause."}]}

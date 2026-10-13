@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0.0",
+  "faults": [
+    {
+      "id": "entity_ambiguous",
+      "type": "entity_ambiguous",
+      "deterministic": true,
+      "user_explanation": "Reproduce the entity ambiguous failure."
+    },
+    {
+      "id": "metric_stale",
+      "type": "metric_stale",
+      "deterministic": true,
+      "user_explanation": "Reproduce the metric stale failure."
+    },
+    {
+      "id": "policy_conflict",
+      "type": "policy_conflict",
+      "deterministic": true,
+      "user_explanation": "Reproduce the policy conflict failure."
+    },
+    {
+      "id": "permission_denied",
+      "type": "permission_denied",
+      "deterministic": true,
+      "user_explanation": "Reproduce the permission denied failure."
+    },
+    {
+      "id": "duplicate_case",
+      "type": "duplicate_case",
+      "deterministic": true,
+      "user_explanation": "Reproduce the duplicate case failure."
+    }
+  ]
+}
